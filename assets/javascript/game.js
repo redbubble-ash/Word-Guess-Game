@@ -12,16 +12,70 @@ function ChooseRandomWord(array) {
 }
 
 var ChosenWord = ChooseRandomWord(parrots);
-console.log(ChosenWord);
+console.log("random word is "+ChosenWord);
 
 
-//checking to see if letter selected matches the letter in random word, if letter matches,assign letter to CurrentWord[]. Number guess remianing reduce -1 when guess is wrong
+// set up function to check if the letter is inside of the random word or if the letter was typed before.
+function checkLetter(letter,word){
+    for(i=0;i<word.length;i++){
+        if (letter===word[i]){
+            return true;
+        }
+    }
+    return false;
+}
+
+//create empty arrary for chosen word
+var newWord=[];
+for (i=0;i<ChosenWord.length;i++){
+    newWord.push(" ");
+}
+console.log(newWord);
+
+
+
+//type a letter
+document.onkeyup=function(event){
+    var GuessedLetter= event.key;
+    console.log(GuessedLetter);
+    if (checkLetter(GuessedLetter,ChosenWord)){
+        for(i=0;i<ChosenWord.length;i++){
+            if (ChosenWord[i]===GuessedLetter){
+             newWord[i]=GuessedLetter;
+            }
+        }
+        console.log(newWord);
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  //checking to see if letter selected matches the letter in random word, if letter matches,assign letter to CurrentWord[]. Number guess remianing reduce -1 when guess is wrong
 var IfLetterMatch=false;
 function CheckLetter(letter){
 for (i=0; i<ChosenWord.length;i++){
     if (ChosenWord[i]===letter.toLowerCase()){
         IfLetterMatch=true;
-        CurrentWord[i]=letter;
     }
   }
    if (IfLetterMatch==false){
