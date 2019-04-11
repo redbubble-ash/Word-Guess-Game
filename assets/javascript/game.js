@@ -37,22 +37,37 @@ console.log(CurrentWord);
 document.onkeyup=function(event){
     var GuessedLetter= event.key;
     console.log(GuessedLetter);
+    //if the pressed letter is inside of the word then add the letter in new array: currentWord
     if (checkLetter(GuessedLetter,ChosenWord)){
+        //check if currentWord has empty space, if all letters in the word have been guessed, all index spaces should be filled
+        var checkEmptySpace=true;
         for(i=0;i<ChosenWord.length;i++){
             if (ChosenWord[i]===GuessedLetter){
              CurrentWord[i]=GuessedLetter;
             }
+            if (CurrentWord[i]===" "){
+                checkEmptySpace=false;
+            }
         }
-        console.log(CurrentWord);
+        if (checkEmptySpace===true){
+            wins++;
+        }
+        console.log("wins " + wins);
+        console.log("current word is "+ CurrentWord);
     }
+    //if the pressed letter is not inside of the word then display in letterAlreadyGuess
     else{
+        //this step ensures the re-entered letter will not display again 
         if (!checkLetter(GuessedLetter,LetterAlreadyGuessed)){
          LetterAlreadyGuessed.push(GuessedLetter);
          NumberGuessRemaining-=1;
+         //if numberguessremaining ===0, reset
+
         }
-    console.log(LetterAlreadyGuessed);
-    console.log(NumberGuessRemaining);
+    console.log("letter already guessed " + LetterAlreadyGuessed);
+    console.log("Number guess remaining " + NumberGuessRemaining);
     }
+
   }
 
 
@@ -77,20 +92,4 @@ document.onkeyup=function(event){
 
 
 
-  //checking to see if letter selected matches the letter in random word, if letter matches,assign letter to CurrentWord[]. Number guess remianing reduce -1 when guess is wrong
-var IfLetterMatch=false;
-function CheckLetter(letter){
-for (i=0; i<ChosenWord.length;i++){
-    if (ChosenWord[i]===letter.toLowerCase()){
-        IfLetterMatch=true;
-    }
-  }
-   if (IfLetterMatch==false){
-       NumberGuessRemaining-=1;
-   }
-}
 
-//test
-console.log(CheckLetter("c"));
-console.log(CurrentWord);
-console.log(NumberGuessRemaining);
