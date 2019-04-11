@@ -26,25 +26,32 @@ function checkLetter(letter,word){
 }
 
 //create empty arrary for chosen word
-var newWord=[];
 for (i=0;i<ChosenWord.length;i++){
-    newWord.push(" ");
+    CurrentWord.push(" ");
 }
-console.log(newWord);
+console.log(CurrentWord);
 
 
 
-//type a letter
+//type a letter and check if this letter is inside of the word and add it to the current word
 document.onkeyup=function(event){
     var GuessedLetter= event.key;
     console.log(GuessedLetter);
     if (checkLetter(GuessedLetter,ChosenWord)){
         for(i=0;i<ChosenWord.length;i++){
             if (ChosenWord[i]===GuessedLetter){
-             newWord[i]=GuessedLetter;
+             CurrentWord[i]=GuessedLetter;
             }
         }
-        console.log(newWord);
+        console.log(CurrentWord);
+    }
+    else{
+        if (!checkLetter(GuessedLetter,LetterAlreadyGuessed)){
+         LetterAlreadyGuessed.push(GuessedLetter);
+         NumberGuessRemaining-=1;
+        }
+    console.log(LetterAlreadyGuessed);
+    console.log(NumberGuessRemaining);
     }
   }
 
