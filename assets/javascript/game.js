@@ -51,7 +51,7 @@ console.log(CurrentWord);
 
 //type a letter and check if this letter is inside of the word and add it to the current word
 document.onkeyup=function(event){
-    var GuessedLetter= event.key;
+    var GuessedLetter= event.key.toLowerCase();
     console.log(GuessedLetter);
     //if the pressed letter is inside of the word then add the letter in new array: currentWord
     if (checkLetter(GuessedLetter,ChosenWord)){
@@ -70,7 +70,12 @@ document.onkeyup=function(event){
             reset();
         }
         console.log("wins " + wins);
+        //HTML
+        document.getElementById("WinTimes").textContent = wins;
         console.log("current word is "+ CurrentWord);
+        //HTML
+        document.getElementById("FillSpace").textContent = CurrentWord;
+
     }
     //if the pressed letter is not inside of the word then display in letterAlreadyGuess
     else{
@@ -82,10 +87,18 @@ document.onkeyup=function(event){
 
         }
     console.log("letter already guessed " + LetterAlreadyGuessed);
+    //HTML
+    document.getElementById("LetterAlreadyGuessed").textContent = LetterAlreadyGuessed;
     console.log("Number guess remaining " + NumberGuessRemaining);
+    //HTML
+    document.getElementById("NumberGuessesRemain").textContent = NumberGuessRemaining;
     }
 
   }
+
+
+  
+    
 
 
 
