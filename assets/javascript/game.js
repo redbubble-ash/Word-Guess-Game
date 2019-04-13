@@ -1,18 +1,30 @@
-// define parrots names
-var parrots = ["macaw", "cockatoo", "lovebird", "conue", "rosella", "lorikeet", "cockatiel", "budgie", "galah", "ringneck"];
+// define parrots liabrary
+var parrots = [{name:"macaw", image:"assets/images/macaw.jpg"},
+               {name:"cockatoo", image:"assets/images/cockatoo.jpg"},
+               {name:"lovebird", image:"assets/images/lovebird.jpg"},
+               {name:"conure", image:"assets/images/conure.jpg"},
+               {name:"rosella", image:"assets/images/rosella.jpg"},
+               {name:"lorikeet", image:"assets/images/lorikeet.jpg"},
+               {name:"cockatiel", image:"assets/images/cockatiel.jpg"},
+               {name:"budgie", image:"assets/images/budgie.jpg"},
+               {name:"galah", image:"assets/images/galah.jpg"},
+               {name:"ringneck", image:"assets/images/ringneck.jpg"}];
 
 var wins = 0;
 var NumberGuessRemaining = 12;
 var CurrentWord = [];
 var LetterAlreadyGuessed = [];
 
+
 // Grabing a rondom word
 function ChooseRandomWord(array) {
     return array[Math.floor(Math.random() * array.length)];
 }
 
-var ChosenWord = ChooseRandomWord(parrots);
-console.log("random word is " + ChosenWord);
+var ChosenBird = ChooseRandomWord(parrots);
+console.log("random word is " + ChosenBird);
+
+var ChosenWord = ChosenBird.name;
 
 
 // set up function to check if the letter is inside of the random word or if the letter was typed before.
@@ -25,13 +37,15 @@ function checkLetter(letter,word){
     return false;
 }
 
+
+
 //set up reset function
 function reset(){
         NumberGuessRemaining = 12;
         CurrentWord = [];
         LetterAlreadyGuessed = [];
-        ChosenWord = ChooseRandomWord(parrots);
-        console.log("Choose a new word " + ChosenWord);
+        ChosenBird = ChooseRandomWord(parrots);
+        ChosenWord = ChosenBird.name;
         for (i=0;i<ChosenWord.length;i++){
             CurrentWord.push(" ");
         }
@@ -67,6 +81,7 @@ document.onkeyup=function(event){
         }
         if (checkEmptySpace===true){
             wins++;
+            document.getElementById("BirdPhoto").src=ChosenBird.image;
             reset();
         }
         console.log("wins " + wins);
@@ -75,6 +90,13 @@ document.onkeyup=function(event){
         console.log("current word is "+ CurrentWord);
         //HTML
         document.getElementById("FillSpace").textContent = CurrentWord;
+        console.log("letter already guessed " + LetterAlreadyGuessed);
+        //HTML
+        document.getElementById("LetterAlreadyGuessed").textContent = LetterAlreadyGuessed;
+        console.log("Number guess remaining " + NumberGuessRemaining);
+        //HTML
+        document.getElementById("NumberGuessesRemain").textContent = NumberGuessRemaining;
+        
 
     }
     //if the pressed letter is not inside of the word then display in letterAlreadyGuess
@@ -86,12 +108,17 @@ document.onkeyup=function(event){
          if (NumberGuessRemaining===0){reset();}
 
         }
-    console.log("letter already guessed " + LetterAlreadyGuessed);
-    //HTML
-    document.getElementById("LetterAlreadyGuessed").textContent = LetterAlreadyGuessed;
-    console.log("Number guess remaining " + NumberGuessRemaining);
-    //HTML
-    document.getElementById("NumberGuessesRemain").textContent = NumberGuessRemaining;
+        //HTML
+        document.getElementById("WinTimes").textContent = wins;
+        console.log("current word is "+ CurrentWord);
+        //HTML
+        document.getElementById("FillSpace").textContent = CurrentWord;
+        console.log("letter already guessed " + LetterAlreadyGuessed);
+        //HTML
+        document.getElementById("LetterAlreadyGuessed").textContent = LetterAlreadyGuessed;
+        console.log("Number guess remaining " + NumberGuessRemaining);
+        //HTML
+        document.getElementById("NumberGuessesRemain").textContent = NumberGuessRemaining;
     }
 
   }
