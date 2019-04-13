@@ -14,7 +14,12 @@ html{
 body{
     margin: auto;
     padding: 0;
-    background-image:url("../images/Arara_Liberdade.jpg");
+    background-image:url("../images/feather.jpg");
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+  
+
+
 
 }
 
@@ -36,10 +41,17 @@ h2{
  
  }
 
- 
+ #BirdPhoto{
+     width: 100%;
+     height: auto;
+
+ }
+
+
 .container{
     height: 500px;
     text-align: center;
+    margin-top: 50px;
 }
 
 .col-sm{
