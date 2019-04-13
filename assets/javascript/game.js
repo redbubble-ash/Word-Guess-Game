@@ -1,4 +1,4 @@
-// define parrots liabrary
+// define parrots liabiary
 var parrots = [{name:"macaw", image:"assets/images/macaw.jpg"},
                {name:"cockatoo", image:"assets/images/cockatoo.jpg"},
                {name:"lovebird", image:"assets/images/lovebird.jpg"},
@@ -27,7 +27,7 @@ console.log("random word is " + ChosenBird);
 var ChosenWord = ChosenBird.name;
 
 
-// set up function to check if the letter is inside of the random word or if the letter was typed before.
+// set up function to check if the letter is inside of the random word or if the letter has been typed already.
 function checkLetter(letter,word){
     for(i=0;i<word.length;i++){
         if (letter===word[i]){

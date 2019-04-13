@@ -23,22 +23,34 @@ body{
 
 }
 
-h1{
+header{
    color: white;
    text-align: center;
+   font-family: 'Open Sans', sans-serif;
+   font-family: 'Great Vibes', cursive;
+   font-weight: bold;
+   font-size: 70px;
+   text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
 
 }
 
 h2{
-    color: white;
+    color: pink;
     text-align: center;
+    font-family: 'Great Vibes', cursive;
+    transform: rotate(-20deg); 
+    font-size: 50px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px black, 0 0 25px red, 0 0 5px darkred;
+    
+    
  
  }
 
  h3{
     color: white;
     text-align: center;
- 
+    
  }
 
  #BirdPhoto{
@@ -51,19 +63,29 @@ h2{
 .container{
     height: 500px;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
 .col-sm{
     height: 500px;
 }
 
+.col-sm-4{
+    border-style: dashed;
+    border-color:rgb(126, 199, 228);
+}
+
 p{
     line-height: 50px;
     text-align: center;
-    color: white;
+    color: darkblue;
+    line-height: 35px;
+    font-weight: bold;
 }
 
 #MainContent{
     font:white;
+    font-family: 'Great Vibes', cursive;
+    font-family: 'Roboto', sans-serif;
+ 
 }
