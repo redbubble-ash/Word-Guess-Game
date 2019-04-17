@@ -47,7 +47,7 @@ function reset(){
         ChosenBird = ChooseRandomWord(parrots);
         ChosenWord = ChosenBird.name;
         for (i=0;i<ChosenWord.length;i++){
-            CurrentWord.push(" ");
+            CurrentWord.push("_");
         }
         console.log(CurrentWord);
         
@@ -57,7 +57,7 @@ function reset(){
 
 //create empty arrary for chosen word
 for (i=0;i<ChosenWord.length;i++){
-    CurrentWord.push(" ");
+    CurrentWord.push("_"); 
 }
 console.log(CurrentWord);
 
@@ -75,7 +75,7 @@ document.onkeyup=function(event){
             if (ChosenWord[i]===GuessedLetter){
              CurrentWord[i]=GuessedLetter;
             }
-            if (CurrentWord[i]===" "){
+            if (CurrentWord[i]==="_"){
                 checkEmptySpace=false;
             }
         }
@@ -89,10 +89,10 @@ document.onkeyup=function(event){
         document.getElementById("WinTimes").textContent = wins;
         console.log("current word is "+ CurrentWord);
         //HTML
-        document.getElementById("FillSpace").textContent = CurrentWord;
+        document.getElementById("FillSpace").textContent = CurrentWord.join(" ");
         console.log("letter already guessed " + LetterAlreadyGuessed);
         //HTML
-        document.getElementById("LetterAlreadyGuessed").textContent = LetterAlreadyGuessed;
+        document.getElementById("LetterAlreadyGuessed").textContent = LetterAlreadyGuessed.join(" ");
         console.log("Number guess remaining " + NumberGuessRemaining);
         //HTML
         document.getElementById("NumberGuessesRemain").textContent = NumberGuessRemaining;
@@ -112,10 +112,10 @@ document.onkeyup=function(event){
         document.getElementById("WinTimes").textContent = wins;
         console.log("current word is "+ CurrentWord);
         //HTML
-        document.getElementById("FillSpace").textContent = CurrentWord;
+        document.getElementById("FillSpace").textContent = CurrentWord.join(" ");
         console.log("letter already guessed " + LetterAlreadyGuessed);
         //HTML
-        document.getElementById("LetterAlreadyGuessed").textContent = LetterAlreadyGuessed;
+        document.getElementById("LetterAlreadyGuessed").textContent = LetterAlreadyGuessed.join(" ");
         console.log("Number guess remaining " + NumberGuessRemaining);
         //HTML
         document.getElementById("NumberGuessesRemain").textContent = NumberGuessRemaining;
